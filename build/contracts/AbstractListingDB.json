@@ -1,0 +1,142 @@
+{
+  "contract_name": "AbstractListingDB",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_bidId",
+          "type": "uint64"
+        },
+        {
+          "name": "_status",
+          "type": "uint8"
+        }
+      ],
+      "name": "setBidStatus",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "bidId",
+          "type": "uint64"
+        }
+      ],
+      "name": "getBidInfo",
+      "outputs": [
+        {
+          "name": "labelHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "status",
+          "type": "uint8"
+        },
+        {
+          "name": "bidder",
+          "type": "address"
+        },
+        {
+          "name": "bidAmount",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "listingId",
+          "type": "uint64"
+        }
+      ],
+      "name": "listings",
+      "outputs": [
+        {
+          "name": "listingAgent",
+          "type": "address"
+        },
+        {
+          "name": "listPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "labelHash",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_email",
+          "type": "string"
+        },
+        {
+          "name": "_bidAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "_bidder",
+          "type": "address"
+        }
+      ],
+      "name": "addBid",
+      "outputs": [
+        {
+          "name": "_bidId",
+          "type": "uint64"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_email",
+          "type": "string"
+        },
+        {
+          "name": "_listPrice",
+          "type": "uint256"
+        },
+        {
+          "name": "_listingAgent",
+          "type": "address"
+        }
+      ],
+      "name": "addListing",
+      "outputs": [
+        {
+          "name": "listingId",
+          "type": "uint64"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "unlinked_binary": "0x",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1498439480656
+}

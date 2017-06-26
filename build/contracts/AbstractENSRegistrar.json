@@ -1,0 +1,60 @@
+{
+  "contract_name": "AbstractENSRegistrar",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "entries",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_hash",
+          "type": "bytes32"
+        },
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "unlinked_binary": "0x",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1498439480656
+}

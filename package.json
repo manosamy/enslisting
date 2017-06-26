@@ -1,0 +1,26 @@
+{
+  "name": "enslisting",
+  "version": "1.0.0",
+  "description": "enslisting smart contracts",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "web3": "^0.19.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "enslisting"
+  ],
+  "author": "Mano Samy",
+  "license": "MIT"
+}

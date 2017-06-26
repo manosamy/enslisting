@@ -1,0 +1,58 @@
+{
+  "contract_name": "MockDeed",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "setOwner",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "previousOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000c57fe5b60405160208061017283398101604052515b60008054600160a060020a038316600160a060020a0319918216179091556001805490911690555b505b61011b806100576000396000f300606060405263ffffffff60e060020a60003504166313af403581146034578063674f220f14604f5780638da5cb5b146078575bfe5b3415603b57fe5b604d600160a060020a036004351660a1565b005b3415605657fe5b605c60d1565b60408051600160a060020a039092168252519081900360200190f35b3415607f57fe5b605c60e0565b60408051600160a060020a039092168252519081900360200190f35b6000805460018054600160a060020a03808416600160a060020a0319928316179092559091169083161790555b50565b600154600160a060020a031681565b600054600160a060020a0316815600a165627a7a72305820c7abd6c6c38a435ff4ad507a8728dd9a132308479a4b7822891711cfbd370d0c0029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1498439480659
+}
