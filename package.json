@@ -1,6 +1,6 @@
 {
   "name": "enslisting",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "enslisting smart contracts",
   "main": "truffle.js",
   "directories": {
@@ -28,7 +28,7 @@
     "ens auction",
     "ens domain name",
     "ens escrow",
-    "ens transfer",
+    "ens transfer"
   ],
   "author": "Mano Samy",
   "license": "MIT"

@@ -1,12 +1,15 @@
 # enslisting
-enslisting.com smart contacts, api
+enslisting.com smart contacts
+
+*[The npm module **enslisting** will soon get web3 based javascript api to directly list, bid, pay, transfer, and monitor transactions.]* 
 
 Review the smart contracts that are backing enslisting.com
-There are two main services:
-ListingService
-EscrowService
 
-run the tests against your local node:
+There are two main services:
+* **ListingService** - Handles listing, bids, bid accept/decline workflow
+* **EscrowService** - Handles escrow payments (optionally matching to a bid), domain transfer and payment transfer. Also support payment reject, offer expiry workflows, and a safety hatch to withdraw the unclaimed funds 30 days after offer expiry. 
+
+To review the escrow logic, run tests against your local node:
 
 ```
 truffle test
