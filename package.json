@@ -18,8 +18,17 @@
   "scripts": {
     "test": "test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manosamy/enslisting.git"
+  },  
   "keywords": [
-    "enslisting"
+    "enslisting",
+    "escrow",
+    "ens auction",
+    "ens domain name",
+    "ens escrow",
+    "ens transfer",
   ],
   "author": "Mano Samy",
   "license": "MIT"
