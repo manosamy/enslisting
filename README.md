@@ -9,6 +9,52 @@ There are two main services:
 * **ListingService** - Handles listing, bids, bid accept/decline workflow
 * **EscrowService** - Handles escrow payments (optionally matching to a bid), domain transfer and payment transfer. Also support payment reject, offer expiry workflows, and a safety hatch to withdraw the unclaimed funds 30 days after offer expiry. 
 
+To submit a listing, do the following:
+
+```
+var enslisting = require('enslisting');
+var Web3 = require('web3');
+var TIP_AMT = 0.005; //ethers
+
+//Initialize web3
+var web3 = new Web3();
+web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+
+//Select the correct account that owns the domains, else, the submission will fail and you will lose your txn fee.
+var DOMAIN_OWNER_ACCOUNT = web3.eth.accounts[7];
+//remember to unlock the account first in geth using
+//personal.unlockAccount(eth.accounts[7])
+
+console.log("Owner Account:" + DOMAIN_OWNER_ACCOUNT);
+console.log("all Accounts:" + web3.eth.accounts);
+
+console.log("Ens Categories: " + JSON.stringify(enslisting.ensCategories()));
+
+//Get reference to enslisting contract
+var listingContract = enslisting.enslistingContract(web3);
+
+//first submit metadata to enslisting.com website
+enslisting.submitCategoriesAndKeywords("privatebit", "2,4", "private bit")
+    .then(function (response) {
+        console.log(response); //response should be "successful"
+    }).then(function () {
+        //Submit listing transaction to mainnet
+        console.log("submitting transaction to mainnet");
+        return listingContract.addListing(
+            'privatebit', //Domain name you are listing, without .eth
+            'ensreseller@gmail.com', //email address, optional, give '' if you want to be anonymous @gmail.com can be omitteds
+            web3.toWei(1.1, "ether").valueOf(), //list price, in ethers
+            { from: DOMAIN_OWNER_ACCOUNT, value: web3.toWei(TIP_AMT, "ether"), gas: 600000 }); //tip amount in ethers
+    }).then(function (listingTxnHash) {
+        console.log(`Listing transaction hash: ${listingTxnHash}`);
+        console.log("Verify status of this one trasnaction by visiting");
+        console.log(`https://etherscan.io/tx/${listingTxnHash}`);
+        console.log("Or review all recent listings by visiting");
+        console.log(`https://etherscan.io/address/${listingContract.address}`);
+    });
+
+```
+
 To review the escrow logic, run tests against your local node:
 
 ```
@@ -30,6 +76,20 @@ Registry loaded from: 0x25d02115bd67258a406a0f676147e6c3598a91a9
 Listing DB loaded from: 0x9ce4cd6d7f5e8b14c7a3e8e6a257a86bd5a6eea0
 EscrowService loaded from: 0xdc78afe9cfde0576ff236667dc8c380615c24ca9
 ListingService loaded from: 0xb349fb172d6d5f693b0aa1c6eec4c61cfd6846f4
+
+Legend:
+e = escrow creation
+e(b) = escrow creation against a bidd
+te = transfer domain to enslisting
+tb = transfer domain to buyer
+ts = transfer domain back to seller
+d = seller draw funds
+r = seller rejecting an escrow payment
+w = buyer withdraw funds
+<exp> = escrow offer expires (after 7 days)
+<scv> = escrow payment scavenged
+
+
   Contract: EscrowService Happy Path
     v should be able to e, te, tb, d (731ms)
     v should be able to te, e, tb, d (634ms)
