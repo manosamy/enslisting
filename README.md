@@ -1,8 +1,6 @@
 # enslisting
 enslisting.com smart contacts
 
-*[The npm module **enslisting** will soon get web3 based javascript api to directly list, bid, pay, transfer, and monitor transactions.]* 
-
 Review the smart contracts that are backing enslisting.com
 
 There are two main services:
